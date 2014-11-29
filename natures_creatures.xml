@@ -1,0 +1,2703 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.1.14
+- http://www.phpmyadmin.net
+-
+- Host: 127.0.0.1
+- Generation Time: Nov 29, 2014 at 02:25 AM
+- Server version: 5.6.17
+- PHP Version: 5.5.12
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="http://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="natures_creatures" collation="latin1_swedish_ci" charset="latin1">
+            <pma:table name="bioclass">
+                CREATE TABLE `bioclass` (
+                  `Species` varchar(45) NOT NULL,
+                  `Genus` varchar(45) NOT NULL,
+                  `Family` varchar(45) NOT NULL,
+                  `Order` varchar(45) NOT NULL,
+                  `Class` varchar(45) NOT NULL,
+                  `Phyla` varchar(45) NOT NULL,
+                  `Kingdom` varchar(45) NOT NULL,
+                  `Common_Name` varchar(45) NOT NULL,
+                  UNIQUE KEY `Genus-Species` (`Species`,`Genus`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="location">
+                CREATE TABLE `location` (
+                  `Species` varchar(45) NOT NULL,
+                  `Genus` varchar(45) NOT NULL,
+                  `habitat` set('mountain','scrub','forest','urban','rainforest','rocky','arid','caves','desert','brush','tundra','coastal','farmland','prairie','grassland','semidesert','savannah','swamp','river','salt-water','freshwater','pond','tidal pools','NA') NOT NULL,
+                  `continent` set('sAmerica','nAmerica','asia','africa','australia','antarctica','oceans','europe') NOT NULL,
+                  UNIQUE KEY `Species` (`Species`,`Genus`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="metadata">
+                CREATE TABLE `metadata` (
+                  `Species` varchar(45) NOT NULL,
+                  `Genus` varchar(45) NOT NULL,
+                  `dateAdded` date NOT NULL,
+                  UNIQUE KEY `Species` (`Species`,`Genus`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="traits_individual">
+                CREATE TABLE `traits_individual` (
+                  `Species` varchar(45) NOT NULL,
+                  `Genus` varchar(45) NOT NULL,
+                  `diet` set('carnivore','herbivore','omnivore','insectivore','piscivore','scavenger','other') NOT NULL,
+                  `time_active` set('nocturnal','diurnal','crepuscular','variable') NOT NULL,
+                  `yearClassified` int(4) NOT NULL,
+                  `conservationStatus` set('EX','EW','CR','EN','VU','NT','LC','DD','NE','Domesticated','NA') NOT NULL,
+                  `avgLifespan(years)` float NOT NULL,
+                  `avgLength(in)` double NOT NULL,
+                  `avgHeight(in)` double NOT NULL,
+                  `avgWeight(lb)` double NOT NULL,
+                  `avgWingspan(in)` double NOT NULL,
+                  `femaleIsSmaller` tinyint(1) NOT NULL,
+                  `isMonogamous` tinyint(1) NOT NULL,
+                  `birthType` set('viviparous','ovoviviparous') NOT NULL,
+                  `aveLitterSize` int(11) NOT NULL,
+                  UNIQUE KEY `Species` (`Species`,`Genus`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'natures_creatures'
+    -->
+    <database name="natures_creatures">
+        <!-- Table bioclass -->
+        <table name="bioclass">
+            <column name="Species">Afer</column>
+            <column name="Genus">Orycteropus</column>
+            <column name="Family">Orycteropodidae</column>
+            <column name="Order">Tubulidentata</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Aardvark</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Americana</column>
+            <column name="Genus">Antilocapra</column>
+            <column name="Family">Antilocapridae</column>
+            <column name="Order">Artiodactyla</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Pronghorn</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Americanus</column>
+            <column name="Genus">Ursus</column>
+            <column name="Family">Ursidae</column>
+            <column name="Order">Carnivora</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">American blackbear</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Anubis</column>
+            <column name="Genus">Papio</column>
+            <column name="Family">Cercopithecidae</column>
+            <column name="Order">Primates</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Olive Baboon</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Arctos Horribilis</column>
+            <column name="Genus">Ursus</column>
+            <column name="Family">Ursidae</column>
+            <column name="Order">Carnivora</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Grizzly Bear</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Bactrianus</column>
+            <column name="Genus">Camelus</column>
+            <column name="Family">Camelidae</column>
+            <column name="Order">Artiodactyla</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Bactrian camel</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Bison</column>
+            <column name="Genus">Bison</column>
+            <column name="Family">Bovidae</column>
+            <column name="Order">Artiodactyla</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">American Bison</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Borealis</column>
+            <column name="Genus">Lasiurus</column>
+            <column name="Family">Vespertilionidae</column>
+            <column name="Order">Chiroptera</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Eastern red bat</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Brachyurus</column>
+            <column name="Genus">Chrysocyon</column>
+            <column name="Family">Canidae</column>
+            <column name="Order">Carnivora</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Maned Wolf</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Burchellii</column>
+            <column name="Genus">Equus</column>
+            <column name="Family">Equidae</column>
+            <column name="Order">Perissodactyla</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Common Zebra</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Canadensis</column>
+            <column name="Genus">Castor</column>
+            <column name="Family">Castoridae</column>
+            <column name="Order">Rodentia</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">North American beaver</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Canadensis</column>
+            <column name="Genus">Ovis</column>
+            <column name="Family">Bovidae</column>
+            <column name="Order">Artiodactyla</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Bighorn sheep</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Catodon</column>
+            <column name="Genus">Physeter</column>
+            <column name="Family">Physeteridae</column>
+            <column name="Order">Cetacea</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Sperm Whale</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Chinchilla</column>
+            <column name="Genus">Chinchilla</column>
+            <column name="Family">Chinchillidae</column>
+            <column name="Order">Rodentia</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Short-tailed chinchilla</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Cinereus</column>
+            <column name="Genus">Lasiurus</column>
+            <column name="Family">Vespertilionidae</column>
+            <column name="Order">Chiroptera</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Hoary bat</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Dalli</column>
+            <column name="Genus">Ovis</column>
+            <column name="Family">Bovidae</column>
+            <column name="Order">Artiodactyla</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Dall Sheep</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Dofleini</column>
+            <column name="Genus">Enteroctopus</column>
+            <column name="Family">Octopodidae</column>
+            <column name="Order">Octopoda</column>
+            <column name="Class">Cephalopoda</column>
+            <column name="Phyla">Mollusca</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Giant Pacific Octopus</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Dromedarius</column>
+            <column name="Genus">Camelus</column>
+            <column name="Family">Camelidae</column>
+            <column name="Order">Artiodactyla</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Dromedary</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Evotis</column>
+            <column name="Genus">Myotis</column>
+            <column name="Family">Vespertilionidae</column>
+            <column name="Order">Chiroptera</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Long-eared myotis</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Fuscus</column>
+            <column name="Genus">Eptesicus</column>
+            <column name="Family">Vespertilionidae</column>
+            <column name="Order">Chiroptera</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Big brown bat</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Glandula</column>
+            <column name="Genus">Balanus</column>
+            <column name="Family">Balanidae</column>
+            <column name="Order">Sessilia</column>
+            <column name="Class">Maxillopoda</column>
+            <column name="Phyla">Arthropoda</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Barnacle</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Glauca</column>
+            <column name="Genus">Prionace</column>
+            <column name="Family">Carcharhinidae</column>
+            <column name="Order">Carcharhiniformes</column>
+            <column name="Class">Chondrichthyes</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Blue Shark</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Grevyi</column>
+            <column name="Genus">Equus</column>
+            <column name="Family">Equidae</column>
+            <column name="Order">Perissodactyla</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Grevy's Zebra</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Grunniens</column>
+            <column name="Genus">Bos</column>
+            <column name="Family">Bovidae</column>
+            <column name="Order">Artiodactyla</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Yak</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Gulo</column>
+            <column name="Genus">Gulo</column>
+            <column name="Family">Mustelidae</column>
+            <column name="Order">Carnivora</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Wolverine</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Hemionus</column>
+            <column name="Genus">Odocoileus</column>
+            <column name="Family">Cervidae</column>
+            <column name="Order">Artiodactyla</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Mule Deer</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Hydrochaeris</column>
+            <column name="Genus">Hydrochoerus</column>
+            <column name="Family">Caviidae</column>
+            <column name="Order">Rodentia</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Capybara</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Immutabilis</column>
+            <column name="Genus">Phoebastria</column>
+            <column name="Family">Diomedeidae</column>
+            <column name="Order">Procellariiformes</column>
+            <column name="Class">Aves</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Laysan Albatross</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Jubatus</column>
+            <column name="Genus">Acinonyx</column>
+            <column name="Family">Fellidae</column>
+            <column name="Order">Carnivora</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Cheeta</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Lagotis</column>
+            <column name="Genus">Macrotis</column>
+            <column name="Family">Thylacomyidae</column>
+            <column name="Order">Peramelemorphia</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Greater Bilby</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Latrans</column>
+            <column name="Genus">Canis</column>
+            <column name="Family">Canidae</column>
+            <column name="Order">Carnivora</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Coyote</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Leporina</column>
+            <column name="Genus">Dasyprocta</column>
+            <column name="Family">Dasyproctidae</column>
+            <column name="Order">Rodentia</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Red-rumped aouti</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Leucas</column>
+            <column name="Genus">Delphinapterus</column>
+            <column name="Family">Monodontidae</column>
+            <column name="Order">Cetacea</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Beluga Whale</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Lucifugus</column>
+            <column name="Genus">Myotis</column>
+            <column name="Family">Vespertilionidae</column>
+            <column name="Order">Chiroptera</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Little brown bat</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Lupus</column>
+            <column name="Genus">Canis</column>
+            <column name="Family">Canidae</column>
+            <column name="Order">Carnivora</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Grey Wolf</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Lupus Arctos</column>
+            <column name="Genus">Canis</column>
+            <column name="Family">Canidae</column>
+            <column name="Order">Carnivora</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Arctic Wolf</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Macrotis</column>
+            <column name="Genus">Nyctinomops</column>
+            <column name="Family">Molossidae</column>
+            <column name="Order">Chiroptera</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Big free-tailed bat</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Madagascariensis</column>
+            <column name="Genus">Daubentonia</column>
+            <column name="Family">Daubentoniidae</column>
+            <column name="Order">Primates</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Aye Aye</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Malayanus</column>
+            <column name="Genus">Helarctos</column>
+            <column name="Family">Ursidae</column>
+            <column name="Order">Carnivora</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Sun Bear</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Maritimus</column>
+            <column name="Genus">Ursus</column>
+            <column name="Family">Ursidae</column>
+            <column name="Order">Carnivora</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Polar Bear</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Mississippiensis</column>
+            <column name="Genus">Alligator</column>
+            <column name="Family">Crocodylidae</column>
+            <column name="Order">Crocodylia</column>
+            <column name="Class">Reptilia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">American Alligator</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Monax</column>
+            <column name="Genus">Marmota</column>
+            <column name="Family">Sciuridae</column>
+            <column name="Order">Rodentia</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Woodchuck</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Musculus</column>
+            <column name="Genus">Balaenoptera</column>
+            <column name="Family">Balaenopteridae</column>
+            <column name="Order">Cetacea</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Blue Whale</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Nasomaculatus</column>
+            <column name="Genus">Addax</column>
+            <column name="Family">Bovidae</column>
+            <column name="Order">Artiodactyla</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Addax</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Nasua</column>
+            <column name="Genus">Nasua</column>
+            <column name="Family">Procyonidae</column>
+            <column name="Order">Carnivora</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">South American coati</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Novaeangliae</column>
+            <column name="Genus">Megaptera</column>
+            <column name="Family">Balaenopteridae</column>
+            <column name="Order">Cetacea</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Humpback Whale</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Novemcinctus</column>
+            <column name="Genus">Dasypus</column>
+            <column name="Family">Dasypodidae</column>
+            <column name="Order">Cingulata</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Nine-Banded Armadillo</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Orca</column>
+            <column name="Genus">Orcinus</column>
+            <column name="Family">Delphinidae</column>
+            <column name="Order">Cetacea</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Killer Whale</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Ornatus</column>
+            <column name="Genus">Tremarctos</column>
+            <column name="Family">Ursidae</column>
+            <column name="Order">Carnivora</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Spectacled Bear</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Pallidus</column>
+            <column name="Genus">Antrozous</column>
+            <column name="Family">Vespertilionidae</column>
+            <column name="Order">Chiroptera</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Pallid bat</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Pennsylvanicus</column>
+            <column name="Genus">Camponotus</column>
+            <column name="Family">Formicidae</column>
+            <column name="Order">Hymenoptera</column>
+            <column name="Class">Insecta</column>
+            <column name="Phyla">Arthropoda</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Black Carpenter Ant</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Quagga</column>
+            <column name="Genus">Equus</column>
+            <column name="Family">Equidae</column>
+            <column name="Order">Perissodactyla</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Quagga</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Rufus</column>
+            <column name="Genus">Lynx</column>
+            <column name="Family">Fellidae</column>
+            <column name="Order">Carnivora</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Bobcat</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Rupicapra</column>
+            <column name="Genus">Rupicapra</column>
+            <column name="Family">Bovidae</column>
+            <column name="Order">Artiodactyla</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Chamois</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Salmoides</column>
+            <column name="Genus">Micropterus</column>
+            <column name="Family">Centrarchidae</column>
+            <column name="Order">Perciformes</column>
+            <column name="Class">Actinopterygii</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Largemouth Bass</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Striatus</column>
+            <column name="Genus">Tamias</column>
+            <column name="Family">Sciuridae</column>
+            <column name="Order">Rodentia</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Eastern Chipmunk</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Subflavus</column>
+            <column name="Genus">Pipistrellus</column>
+            <column name="Family">Vespertilionidae</column>
+            <column name="Order">Chiroptera</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Eastern Pipstrelle</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Tarandus</column>
+            <column name="Genus">Rangifer</column>
+            <column name="Family">Cervidae</column>
+            <column name="Order">Artiodactyla</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Reindeer</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Tatarica</column>
+            <column name="Genus">Saiga</column>
+            <column name="Family">Bovidae</column>
+            <column name="Order">Artiodactyla</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Saiga</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Taurinus</column>
+            <column name="Genus">Connochaetes</column>
+            <column name="Family">Bovidae</column>
+            <column name="Order">Artiodactyla</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Common Wildebeest</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Taxus</column>
+            <column name="Genus">Taxidea</column>
+            <column name="Family">Mustelidae</column>
+            <column name="Order">Carnivora</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">American Badger</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Tinctorius</column>
+            <column name="Genus">Dendrobates</column>
+            <column name="Family">Dendrobatidae</column>
+            <column name="Order">Anura</column>
+            <column name="Class">Amphibia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Dyeing Dart Frog</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Tridactyla</column>
+            <column name="Genus">Myrmecophaga</column>
+            <column name="Family">Myrmecophagidae</column>
+            <column name="Order">Piliosa</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Anteater (Giant)</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Troglodytes</column>
+            <column name="Genus">Pan</column>
+            <column name="Family">Hominidae</column>
+            <column name="Order">Primates</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Common Chimpanzee</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Ursinus</column>
+            <column name="Genus">Vombatus</column>
+            <column name="Family">Vombatidae</column>
+            <column name="Order">Diprotodontia</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Common Wombat</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Variegatus</column>
+            <column name="Genus">Cynocephalus</column>
+            <column name="Family">Cynocephalidae</column>
+            <column name="Order">Dermoptera</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Sunda flying lemur</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Virginianus</column>
+            <column name="Genus">Odocoileus</column>
+            <column name="Family">Cervidae</column>
+            <column name="Order">Artiodactyla</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">White-tailed deer</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Vittatus</column>
+            <column name="Genus">Centruroides</column>
+            <column name="Family">Buthidae</column>
+            <column name="Order">Scorpiones</column>
+            <column name="Class">Arachnida</column>
+            <column name="Phyla">Arthropoda</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Striped Bark Scorpion</column>
+        </table>
+        <table name="bioclass">
+            <column name="Species">Zebra</column>
+            <column name="Genus">Equus</column>
+            <column name="Family">Equidae</column>
+            <column name="Order">Perissodactyla</column>
+            <column name="Class">Mammalia</column>
+            <column name="Phyla">Chordate</column>
+            <column name="Kingdom">Animalia</column>
+            <column name="Common_Name">Mountain Zebra</column>
+        </table>
+        <!-- Table location -->
+        <table name="location">
+            <column name="Species">Afer</column>
+            <column name="Genus">Orycteropus</column>
+            <column name="habitat">grassland</column>
+            <column name="continent">africa</column>
+        </table>
+        <table name="location">
+            <column name="Species">Americana</column>
+            <column name="Genus">Antilocapra</column>
+            <column name="habitat">scrub,grassland</column>
+            <column name="continent">nAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Americanus</column>
+            <column name="Genus">Ursus</column>
+            <column name="habitat">scrub,forest,swamp</column>
+            <column name="continent">nAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Anubis</column>
+            <column name="Genus">Papio</column>
+            <column name="habitat">forest,savannah</column>
+            <column name="continent">africa</column>
+        </table>
+        <table name="location">
+            <column name="Species">Arctos Horribilis</column>
+            <column name="Genus">Ursus</column>
+            <column name="habitat">mountain,forest</column>
+            <column name="continent">nAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Bactrianus</column>
+            <column name="Genus">Camelus</column>
+            <column name="habitat">mountain,desert,grassland</column>
+            <column name="continent">asia</column>
+        </table>
+        <table name="location">
+            <column name="Species">Bison</column>
+            <column name="Genus">Bison</column>
+            <column name="habitat">prairie</column>
+            <column name="continent">nAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Borealis</column>
+            <column name="Genus">Lasiurus</column>
+            <column name="habitat">forest,urban</column>
+            <column name="continent">nAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Brachyurus</column>
+            <column name="Genus">Chrysocyon</column>
+            <column name="habitat">forest,grassland,swamp,river</column>
+            <column name="continent">sAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Burchellii</column>
+            <column name="Genus">Equus</column>
+            <column name="habitat">mountain,grassland,savannah</column>
+            <column name="continent">africa</column>
+        </table>
+        <table name="location">
+            <column name="Species">Canadensis</column>
+            <column name="Genus">Castor</column>
+            <column name="habitat">forest,river,pond</column>
+            <column name="continent">nAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Canadensis</column>
+            <column name="Genus">Ovis</column>
+            <column name="habitat">mountain,desert</column>
+            <column name="continent">nAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Catodon</column>
+            <column name="Genus">Physeter</column>
+            <column name="habitat">salt-water</column>
+            <column name="continent">oceans</column>
+        </table>
+        <table name="location">
+            <column name="Species">Chinchilla</column>
+            <column name="Genus">Chinchilla</column>
+            <column name="habitat">mountain,scrub</column>
+            <column name="continent">nAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Cinereus</column>
+            <column name="Genus">Lasiurus</column>
+            <column name="habitat">forest,urban</column>
+            <column name="continent">sAmerica,nAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Dalli</column>
+            <column name="Genus">Ovis</column>
+            <column name="habitat">mountain</column>
+            <column name="continent">nAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Dofleini</column>
+            <column name="Genus">Enteroctopus</column>
+            <column name="habitat">salt-water</column>
+            <column name="continent">oceans</column>
+        </table>
+        <table name="location">
+            <column name="Species">Dromedarius</column>
+            <column name="Genus">Camelus</column>
+            <column name="habitat">desert</column>
+            <column name="continent">africa</column>
+        </table>
+        <table name="location">
+            <column name="Species">Evotis</column>
+            <column name="Genus">Myotis</column>
+            <column name="habitat">forest</column>
+            <column name="continent">sAmerica,nAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Fuscus</column>
+            <column name="Genus">Eptesicus</column>
+            <column name="habitat">forest,urban,caves</column>
+            <column name="continent">nAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Glandula</column>
+            <column name="Genus">Balanus</column>
+            <column name="habitat">coastal,tidal pools</column>
+            <column name="continent">oceans</column>
+        </table>
+        <table name="location">
+            <column name="Species">Glauca</column>
+            <column name="Genus">Prionace</column>
+            <column name="habitat">salt-water</column>
+            <column name="continent">oceans</column>
+        </table>
+        <table name="location">
+            <column name="Species">Grevyi</column>
+            <column name="Genus">Equus</column>
+            <column name="habitat">mountain,grassland,savannah</column>
+            <column name="continent">africa</column>
+        </table>
+        <table name="location">
+            <column name="Species">Grunniens</column>
+            <column name="Genus">Bos</column>
+            <column name="habitat">mountain,grassland,semidesert</column>
+            <column name="continent">asia</column>
+        </table>
+        <table name="location">
+            <column name="Species">Gulo</column>
+            <column name="Genus">Gulo</column>
+            <column name="habitat">mountain,forest,tundra</column>
+            <column name="continent">nAmerica,europe</column>
+        </table>
+        <table name="location">
+            <column name="Species">Hemionus</column>
+            <column name="Genus">Odocoileus</column>
+            <column name="habitat">arid,desert</column>
+            <column name="continent">nAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Hydrochaeris</column>
+            <column name="Genus">Hydrochoerus</column>
+            <column name="habitat">rainforest,brush</column>
+            <column name="continent">sAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Immutabilis</column>
+            <column name="Genus">Phoebastria</column>
+            <column name="habitat">coastal</column>
+            <column name="continent">oceans</column>
+        </table>
+        <table name="location">
+            <column name="Species">Jubatus</column>
+            <column name="Genus">Acinonyx</column>
+            <column name="habitat">grassland,savannah</column>
+            <column name="continent">africa</column>
+        </table>
+        <table name="location">
+            <column name="Species">Lagotis</column>
+            <column name="Genus">Macrotis</column>
+            <column name="habitat">scrub,arid</column>
+            <column name="continent">australia</column>
+        </table>
+        <table name="location">
+            <column name="Species">Latrans</column>
+            <column name="Genus">Canis</column>
+            <column name="habitat">forest,desert</column>
+            <column name="continent">nAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Leporina</column>
+            <column name="Genus">Dasyprocta</column>
+            <column name="habitat">rainforest</column>
+            <column name="continent">sAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Leucas</column>
+            <column name="Genus">Delphinapterus</column>
+            <column name="habitat">salt-water</column>
+            <column name="continent">oceans</column>
+        </table>
+        <table name="location">
+            <column name="Species">Lucifugus</column>
+            <column name="Genus">Myotis</column>
+            <column name="habitat">forest,urban</column>
+            <column name="continent">sAmerica,nAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Lupus</column>
+            <column name="Genus">Canis</column>
+            <column name="habitat">mountain,forest,prairie</column>
+            <column name="continent">nAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Lupus Arctos</column>
+            <column name="Genus">Canis</column>
+            <column name="habitat">tundra</column>
+            <column name="continent">europe</column>
+        </table>
+        <table name="location">
+            <column name="Species">Macrotis</column>
+            <column name="Genus">Nyctinomops</column>
+            <column name="habitat">urban,caves</column>
+            <column name="continent">sAmerica,nAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Madagascariensis</column>
+            <column name="Genus">Daubentonia</column>
+            <column name="habitat">forest</column>
+            <column name="continent">africa</column>
+        </table>
+        <table name="location">
+            <column name="Species">Malayanus</column>
+            <column name="Genus">Helarctos</column>
+            <column name="habitat">rainforest</column>
+            <column name="continent">asia</column>
+        </table>
+        <table name="location">
+            <column name="Species">Maritimus</column>
+            <column name="Genus">Ursus</column>
+            <column name="habitat">tundra</column>
+            <column name="continent">nAmerica,asia,europe</column>
+        </table>
+        <table name="location">
+            <column name="Species">Mississippiensis</column>
+            <column name="Genus">Alligator</column>
+            <column name="habitat">swamp,river,freshwater,pond</column>
+            <column name="continent">nAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Monax</column>
+            <column name="Genus">Marmota</column>
+            <column name="habitat">forest,farmland</column>
+            <column name="continent">nAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Musculus</column>
+            <column name="Genus">Balaenoptera</column>
+            <column name="habitat">salt-water</column>
+            <column name="continent">oceans</column>
+        </table>
+        <table name="location">
+            <column name="Species">Nasomaculatus</column>
+            <column name="Genus">Addax</column>
+            <column name="habitat">semidesert</column>
+            <column name="continent">africa</column>
+        </table>
+        <table name="location">
+            <column name="Species">Nasua</column>
+            <column name="Genus">Nasua</column>
+            <column name="habitat">mountain,rainforest</column>
+            <column name="continent">sAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Novaeangliae</column>
+            <column name="Genus">Megaptera</column>
+            <column name="habitat">salt-water</column>
+            <column name="continent">oceans</column>
+        </table>
+        <table name="location">
+            <column name="Species">Novemcinctus</column>
+            <column name="Genus">Dasypus</column>
+            <column name="habitat">brush</column>
+            <column name="continent">sAmerica,nAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Orca</column>
+            <column name="Genus">Orcinus</column>
+            <column name="habitat">salt-water</column>
+            <column name="continent">oceans</column>
+        </table>
+        <table name="location">
+            <column name="Species">Ornatus</column>
+            <column name="Genus">Tremarctos</column>
+            <column name="habitat">scrub,forest,rainforest</column>
+            <column name="continent">nAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Pallidus</column>
+            <column name="Genus">Antrozous</column>
+            <column name="habitat">urban,rocky</column>
+            <column name="continent">sAmerica,nAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Pennsylvanicus</column>
+            <column name="Genus">Camponotus</column>
+            <column name="habitat">NA</column>
+            <column name="continent">nAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Quagga</column>
+            <column name="Genus">Equus</column>
+            <column name="habitat">mountain,grassland,savannah</column>
+            <column name="continent">africa</column>
+        </table>
+        <table name="location">
+            <column name="Species">Rufus</column>
+            <column name="Genus">Lynx</column>
+            <column name="habitat">scrub,forest,swamp</column>
+            <column name="continent">nAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Rupicapra</column>
+            <column name="Genus">Rupicapra</column>
+            <column name="habitat">mountain,grassland</column>
+            <column name="continent">europe</column>
+        </table>
+        <table name="location">
+            <column name="Species">Salmoides</column>
+            <column name="Genus">Micropterus</column>
+            <column name="habitat">freshwater</column>
+            <column name="continent">nAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Striatus</column>
+            <column name="Genus">Tamias</column>
+            <column name="habitat">forest,urban</column>
+            <column name="continent">nAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Subflavus</column>
+            <column name="Genus">Pipistrellus</column>
+            <column name="habitat">urban,caves</column>
+            <column name="continent">nAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Tarandus</column>
+            <column name="Genus">Rangifer</column>
+            <column name="habitat">tundra</column>
+            <column name="continent">nAmerica,asia,europe</column>
+        </table>
+        <table name="location">
+            <column name="Species">Tatarica</column>
+            <column name="Genus">Saiga</column>
+            <column name="habitat">grassland,semidesert</column>
+            <column name="continent">asia</column>
+        </table>
+        <table name="location">
+            <column name="Species">Taurinus</column>
+            <column name="Genus">Connochaetes</column>
+            <column name="habitat">savannah</column>
+            <column name="continent">africa</column>
+        </table>
+        <table name="location">
+            <column name="Species">Taxus</column>
+            <column name="Genus">Taxidea</column>
+            <column name="habitat">farmland,prairie</column>
+            <column name="continent">nAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Tinctorius</column>
+            <column name="Genus">Dendrobates</column>
+            <column name="habitat">rainforest</column>
+            <column name="continent">sAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Tridactyla</column>
+            <column name="Genus">Myrmecophaga</column>
+            <column name="habitat">forest,rainforest,grassland</column>
+            <column name="continent">sAmerica,nAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Troglodytes</column>
+            <column name="Genus">Pan</column>
+            <column name="habitat">rainforest,savannah</column>
+            <column name="continent">africa</column>
+        </table>
+        <table name="location">
+            <column name="Species">Ursinus</column>
+            <column name="Genus">Vombatus</column>
+            <column name="habitat">forest,coastal</column>
+            <column name="continent">africa,australia</column>
+        </table>
+        <table name="location">
+            <column name="Species">Variegatus</column>
+            <column name="Genus">Cynocephalus</column>
+            <column name="habitat">forest,rainforest</column>
+            <column name="continent">asia</column>
+        </table>
+        <table name="location">
+            <column name="Species">Virginianus</column>
+            <column name="Genus">Odocoileus</column>
+            <column name="habitat">forest,brush</column>
+            <column name="continent">nAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Vittatus</column>
+            <column name="Genus">Centruroides</column>
+            <column name="habitat">NA</column>
+            <column name="continent">nAmerica</column>
+        </table>
+        <table name="location">
+            <column name="Species">Zebra</column>
+            <column name="Genus">Equus</column>
+            <column name="habitat">mountain,grassland,savannah</column>
+            <column name="continent">africa</column>
+        </table>
+        <!-- Table metadata -->
+        <table name="metadata">
+            <column name="Species">Afer</column>
+            <column name="Genus">Orycteropus</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Americana</column>
+            <column name="Genus">Antilocapra</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Americanus</column>
+            <column name="Genus">Ursus</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Anubis</column>
+            <column name="Genus">Papio</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Arctos Horribilis</column>
+            <column name="Genus">Ursus</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Bactrianus</column>
+            <column name="Genus">Camelus</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Bison</column>
+            <column name="Genus">Bison</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Borealis</column>
+            <column name="Genus">Lasiurus</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Brachyurus</column>
+            <column name="Genus">Chrysocyon</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Burchellii</column>
+            <column name="Genus">Equus</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Canadensis</column>
+            <column name="Genus">Castor</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Canadensis</column>
+            <column name="Genus">Ovis</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Catodon</column>
+            <column name="Genus">Physeter</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Chinchilla</column>
+            <column name="Genus">Chinchilla</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Cinereus</column>
+            <column name="Genus">Lasiurus</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Dalli</column>
+            <column name="Genus">Ovis</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Dofleini</column>
+            <column name="Genus">Enteroctopus</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Dromedarius</column>
+            <column name="Genus">Camelus</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Evotis</column>
+            <column name="Genus">Myotis</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Fuscus</column>
+            <column name="Genus">Eptesicus</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Glandula</column>
+            <column name="Genus">Balanus</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Glauca</column>
+            <column name="Genus">Prionace</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Grevyi</column>
+            <column name="Genus">Equus</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Grunniens</column>
+            <column name="Genus">Bos</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Gulo</column>
+            <column name="Genus">Gulo</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Hemionus</column>
+            <column name="Genus">Odocoileus</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Hydrochaeris</column>
+            <column name="Genus">Hydrochoerus</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Immutabilis</column>
+            <column name="Genus">Phoebastria</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Jubatus</column>
+            <column name="Genus">Acinonyx</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Lagotis</column>
+            <column name="Genus">Macrotis</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Latrans</column>
+            <column name="Genus">Canis</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Leporina</column>
+            <column name="Genus">Dasyprocta</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Leucas</column>
+            <column name="Genus">Delphinapterus</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Lucifugus</column>
+            <column name="Genus">Myotis</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Lupus</column>
+            <column name="Genus">Canis</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Lupus Arctos</column>
+            <column name="Genus">Canis</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Macrotis</column>
+            <column name="Genus">Nyctinomops</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Madagascariensis</column>
+            <column name="Genus">Daubentonia</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Malayanus</column>
+            <column name="Genus">Helarctos</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Maritimus</column>
+            <column name="Genus">Ursus</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Mississippiensis</column>
+            <column name="Genus">Alligator</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Monax</column>
+            <column name="Genus">Marmota</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Musculus</column>
+            <column name="Genus">Balaenoptera</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Nasomaculatus</column>
+            <column name="Genus">Addax</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Nasua</column>
+            <column name="Genus">Nasua</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Novaeangliae</column>
+            <column name="Genus">Megaptera</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Novemcinctus</column>
+            <column name="Genus">Dasypus</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Orca</column>
+            <column name="Genus">Orcinus</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Ornatus</column>
+            <column name="Genus">Tremarctos</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Pallidus</column>
+            <column name="Genus">Antrozous</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Pennsylvanicus</column>
+            <column name="Genus">Camponotus</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Quagga</column>
+            <column name="Genus">Equus</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Rufus</column>
+            <column name="Genus">Lynx</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Rupicapra</column>
+            <column name="Genus">Rupicapra</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Salmoides</column>
+            <column name="Genus">Micropterus</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Striatus</column>
+            <column name="Genus">Tamias</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Subflavus</column>
+            <column name="Genus">Pipistrellus</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Tarandus</column>
+            <column name="Genus">Rangifer</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Tatarica</column>
+            <column name="Genus">Saiga</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Taurinus</column>
+            <column name="Genus">Connochaetes</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Taxus</column>
+            <column name="Genus">Taxidea</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Tinctorius</column>
+            <column name="Genus">Dendrobates</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Tridactyla</column>
+            <column name="Genus">Myrmecophaga</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Troglodytes</column>
+            <column name="Genus">Pan</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Ursinus</column>
+            <column name="Genus">Vombatus</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Variegatus</column>
+            <column name="Genus">Cynocephalus</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Virginianus</column>
+            <column name="Genus">Odocoileus</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Vittatus</column>
+            <column name="Genus">Centruroides</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <table name="metadata">
+            <column name="Species">Zebra</column>
+            <column name="Genus">Equus</column>
+            <column name="dateAdded">2014-11-28</column>
+        </table>
+        <!-- Table traits_individual -->
+        <table name="traits_individual">
+            <column name="Species"></column>
+            <column name="Genus"></column>
+            <column name="diet">piscivore</column>
+            <column name="time_active">variable</column>
+            <column name="yearClassified">1758</column>
+            <column name="conservationStatus">EN</column>
+            <column name="avgLifespan(years)">30</column>
+            <column name="avgLength(in)">140</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">20000</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">1</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Afer</column>
+            <column name="Genus">Orycteropus</column>
+            <column name="diet">insectivore</column>
+            <column name="time_active">nocturnal</column>
+            <column name="yearClassified">1766</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">18</column>
+            <column name="avgLength(in)">60</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">180</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">1</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Americana</column>
+            <column name="Genus">Antilocapra</column>
+            <column name="diet">herbivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1815</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">7</column>
+            <column name="avgLength(in)">53</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">150</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">2</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Americanus</column>
+            <column name="Genus">Ursus</column>
+            <column name="diet">omnivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1780</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">30</column>
+            <column name="avgLength(in)">60</column>
+            <column name="avgHeight(in)">38</column>
+            <column name="avgWeight(lb)">225</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">2</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Anubis</column>
+            <column name="Genus">Papio</column>
+            <column name="diet">omnivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1758</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">40</column>
+            <column name="avgLength(in)">-1</column>
+            <column name="avgHeight(in)">30</column>
+            <column name="avgWeight(lb)">40</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">1</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Arctos Horribilis</column>
+            <column name="Genus">Ursus</column>
+            <column name="diet">omnivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1758</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">30</column>
+            <column name="avgLength(in)">-1</column>
+            <column name="avgHeight(in)">96</column>
+            <column name="avgWeight(lb)">1000</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">2</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Bactrianus</column>
+            <column name="Genus">Camelus</column>
+            <column name="diet">herbivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1758</column>
+            <column name="conservationStatus">CR</column>
+            <column name="avgLifespan(years)">40</column>
+            <column name="avgLength(in)">120</column>
+            <column name="avgHeight(in)">84</column>
+            <column name="avgWeight(lb)">2000</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">1</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Bison</column>
+            <column name="Genus">Bison</column>
+            <column name="diet">herbivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1758</column>
+            <column name="conservationStatus">NT</column>
+            <column name="avgLifespan(years)">15</column>
+            <column name="avgLength(in)">144</column>
+            <column name="avgHeight(in)">73</column>
+            <column name="avgWeight(lb)">2000</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">0</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">1</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Borealis</column>
+            <column name="Genus">Lasiurus</column>
+            <column name="diet">insectivore</column>
+            <column name="time_active">nocturnal</column>
+            <column name="yearClassified">1776</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">8</column>
+            <column name="avgLength(in)">4.5</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">0.03</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">-1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">3</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Brachyurus</column>
+            <column name="Genus">Chrysocyon</column>
+            <column name="diet">omnivore</column>
+            <column name="time_active">nocturnal,crepuscular</column>
+            <column name="yearClassified">1815</column>
+            <column name="conservationStatus">NT</column>
+            <column name="avgLifespan(years)">16</column>
+            <column name="avgLength(in)">66</column>
+            <column name="avgHeight(in)">35</column>
+            <column name="avgWeight(lb)">50</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">-1</column>
+            <column name="isMonogamous">1</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">5</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Burchellii</column>
+            <column name="Genus">Equus</column>
+            <column name="diet">herbivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1785</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">30</column>
+            <column name="avgLength(in)">96</column>
+            <column name="avgHeight(in)">60</column>
+            <column name="avgWeight(lb)">800</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">1</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Canadensis</column>
+            <column name="Genus">Castor</column>
+            <column name="diet">herbivore</column>
+            <column name="time_active">nocturnal</column>
+            <column name="yearClassified">1820</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">10</column>
+            <column name="avgLength(in)">32</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">70</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">-1</column>
+            <column name="isMonogamous">1</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">4</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Canadensis</column>
+            <column name="Genus">Ovis</column>
+            <column name="diet">herbivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1804</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">20</column>
+            <column name="avgLength(in)">72</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">300</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">1</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Catodon</column>
+            <column name="Genus">Physeter</column>
+            <column name="diet">carnivore</column>
+            <column name="time_active">variable</column>
+            <column name="yearClassified">1758</column>
+            <column name="conservationStatus">VU</column>
+            <column name="avgLifespan(years)">80</column>
+            <column name="avgLength(in)">720</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">110230</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">1</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Chinchilla</column>
+            <column name="Genus">Chinchilla</column>
+            <column name="diet">herbivore</column>
+            <column name="time_active">nocturnal</column>
+            <column name="yearClassified">1829</column>
+            <column name="conservationStatus">CR</column>
+            <column name="avgLifespan(years)">10</column>
+            <column name="avgLength(in)">12</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">1</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">-1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">2</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Cinereus</column>
+            <column name="Genus">Lasiurus</column>
+            <column name="diet">insectivore</column>
+            <column name="time_active">nocturnal</column>
+            <column name="yearClassified">1796</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">5</column>
+            <column name="avgLength(in)">6</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">0.13</column>
+            <column name="avgWingspan(in)">17</column>
+            <column name="femaleIsSmaller">-1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">2</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Dalli</column>
+            <column name="Genus">Ovis</column>
+            <column name="diet">herbivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1884</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">15</column>
+            <column name="avgLength(in)">72</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">200</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">-1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">1</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Dofleini</column>
+            <column name="Genus">Enteroctopus</column>
+            <column name="diet">carnivore,piscivore</column>
+            <column name="time_active">variable</column>
+            <column name="yearClassified">1862</column>
+            <column name="conservationStatus">NA</column>
+            <column name="avgLifespan(years)">5</column>
+            <column name="avgLength(in)">-1</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">-1</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">-1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">ovoviviparous</column>
+            <column name="aveLitterSize">100000</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Dromedarius</column>
+            <column name="Genus">Camelus</column>
+            <column name="diet">omnivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1758</column>
+            <column name="conservationStatus">Domesticated</column>
+            <column name="avgLifespan(years)">30</column>
+            <column name="avgLength(in)">120</column>
+            <column name="avgHeight(in)">6.6</column>
+            <column name="avgWeight(lb)">1500</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">1</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Evotis</column>
+            <column name="Genus">Myotis</column>
+            <column name="diet">insectivore</column>
+            <column name="time_active">nocturnal</column>
+            <column name="yearClassified">1864</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">10</column>
+            <column name="avgLength(in)">4</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">-1</column>
+            <column name="avgWingspan(in)">11</column>
+            <column name="femaleIsSmaller">-1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">-1</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Fuscus</column>
+            <column name="Genus">Eptesicus</column>
+            <column name="diet">insectivore</column>
+            <column name="time_active">nocturnal</column>
+            <column name="yearClassified">1796</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">20</column>
+            <column name="avgLength(in)">5</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">0.2</column>
+            <column name="avgWingspan(in)">14</column>
+            <column name="femaleIsSmaller">-1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">1</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Glandula</column>
+            <column name="Genus">Balanus</column>
+            <column name="diet">piscivore</column>
+            <column name="time_active">variable</column>
+            <column name="yearClassified">1854</column>
+            <column name="conservationStatus">NA</column>
+            <column name="avgLifespan(years)">10</column>
+            <column name="avgLength(in)">1</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">-1</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">-1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">ovoviviparous</column>
+            <column name="aveLitterSize">-1</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Glauca</column>
+            <column name="Genus">Prionace</column>
+            <column name="diet">carnivore</column>
+            <column name="time_active">variable</column>
+            <column name="yearClassified">1758</column>
+            <column name="conservationStatus">NT</column>
+            <column name="avgLifespan(years)">20</column>
+            <column name="avgLength(in)">120</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">400</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">0</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">100</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Grevyi</column>
+            <column name="Genus">Equus</column>
+            <column name="diet">herbivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1882</column>
+            <column name="conservationStatus">EN</column>
+            <column name="avgLifespan(years)">30</column>
+            <column name="avgLength(in)">96</column>
+            <column name="avgHeight(in)">60</column>
+            <column name="avgWeight(lb)">400</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">1</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Grunniens</column>
+            <column name="Genus">Bos</column>
+            <column name="diet">herbivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1766</column>
+            <column name="conservationStatus">VU</column>
+            <column name="avgLifespan(years)">25</column>
+            <column name="avgLength(in)">131</column>
+            <column name="avgHeight(in)">84</column>
+            <column name="avgWeight(lb)">2000</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">1</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Gulo</column>
+            <column name="Genus">Gulo</column>
+            <column name="diet">carnivore,scavenger</column>
+            <column name="time_active">nocturnal</column>
+            <column name="yearClassified">1758</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">10</column>
+            <column name="avgLength(in)">43</column>
+            <column name="avgHeight(in)">18</column>
+            <column name="avgWeight(lb)">71</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">6</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Hemionus</column>
+            <column name="Genus">Odocoileus</column>
+            <column name="diet">herbivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1817</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">10</column>
+            <column name="avgLength(in)">69</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">203</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">2</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Hydrochaeris</column>
+            <column name="Genus">Hydrochoerus</column>
+            <column name="diet">herbivore</column>
+            <column name="time_active">nocturnal</column>
+            <column name="yearClassified">1766</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">10</column>
+            <column name="avgLength(in)">48</column>
+            <column name="avgHeight(in)">25</column>
+            <column name="avgWeight(lb)">140</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">0</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">5</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Immutabilis</column>
+            <column name="Genus">Phoebastria</column>
+            <column name="diet">piscivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1893</column>
+            <column name="conservationStatus">NT</column>
+            <column name="avgLifespan(years)">63</column>
+            <column name="avgLength(in)">24</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">9</column>
+            <column name="avgWingspan(in)">72</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">ovoviviparous</column>
+            <column name="aveLitterSize">1</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Jubatus</column>
+            <column name="Genus">Acinonyx</column>
+            <column name="diet">carnivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1775</column>
+            <column name="conservationStatus">VU</column>
+            <column name="avgLifespan(years)">6</column>
+            <column name="avgLength(in)">84</column>
+            <column name="avgHeight(in)">37</column>
+            <column name="avgWeight(lb)">145</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">9</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Lagotis</column>
+            <column name="Genus">Macrotis</column>
+            <column name="diet">herbivore,insectivore</column>
+            <column name="time_active">nocturnal</column>
+            <column name="yearClassified">1837</column>
+            <column name="conservationStatus">VU</column>
+            <column name="avgLifespan(years)">3</column>
+            <column name="avgLength(in)">24</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">4</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">2</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Latrans</column>
+            <column name="Genus">Canis</column>
+            <column name="diet">carnivore,scavenger</column>
+            <column name="time_active">nocturnal</column>
+            <column name="yearClassified">1823</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">15</column>
+            <column name="avgLength(in)">50</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">50</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">1</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">6</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Leporina</column>
+            <column name="Genus">Dasyprocta</column>
+            <column name="diet">herbivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1758</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">6</column>
+            <column name="avgLength(in)">22</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">10</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">0</column>
+            <column name="isMonogamous">1</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">2</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Leucas</column>
+            <column name="Genus">Delphinapterus</column>
+            <column name="diet">piscivore</column>
+            <column name="time_active">variable</column>
+            <column name="yearClassified">1776</column>
+            <column name="conservationStatus">NT</column>
+            <column name="avgLifespan(years)">30</column>
+            <column name="avgLength(in)">168</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">2000</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">0</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">1</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Lucifugus</column>
+            <column name="Genus">Myotis</column>
+            <column name="diet">insectivore</column>
+            <column name="time_active">nocturnal</column>
+            <column name="yearClassified">1831</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">10</column>
+            <column name="avgLength(in)">4</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">0.06</column>
+            <column name="avgWingspan(in)">10</column>
+            <column name="femaleIsSmaller">0</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">1</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Lupus</column>
+            <column name="Genus">Canis</column>
+            <column name="diet">carnivore</column>
+            <column name="time_active">nocturnal</column>
+            <column name="yearClassified">1758</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">17</column>
+            <column name="avgLength(in)">66</column>
+            <column name="avgHeight(in)">34</column>
+            <column name="avgWeight(lb)">100</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">1</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">6</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Lupus Arctos</column>
+            <column name="Genus">Canis</column>
+            <column name="diet">carnivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1935</column>
+            <column name="conservationStatus">EN</column>
+            <column name="avgLifespan(years)">10</column>
+            <column name="avgLength(in)">60</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">100</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">-1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">7</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Macrotis</column>
+            <column name="Genus">Nyctinomops</column>
+            <column name="diet">insectivore</column>
+            <column name="time_active">nocturnal</column>
+            <column name="yearClassified">1840</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">30</column>
+            <column name="avgLength(in)">6</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">-1</column>
+            <column name="avgWingspan(in)">17</column>
+            <column name="femaleIsSmaller">-1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">1</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Madagascariensis</column>
+            <column name="Genus">Daubentonia</column>
+            <column name="diet">herbivore,insectivore</column>
+            <column name="time_active">nocturnal</column>
+            <column name="yearClassified">1788</column>
+            <column name="conservationStatus">EN</column>
+            <column name="avgLifespan(years)">20</column>
+            <column name="avgLength(in)">36</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">5</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">-1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">1</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Malayanus</column>
+            <column name="Genus">Helarctos</column>
+            <column name="diet">omnivore,scavenger</column>
+            <column name="time_active">nocturnal</column>
+            <column name="yearClassified">1821</column>
+            <column name="conservationStatus">VU</column>
+            <column name="avgLifespan(years)">25</column>
+            <column name="avgLength(in)">48</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">150</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">2</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Maritimus</column>
+            <column name="Genus">Ursus</column>
+            <column name="diet">carnivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1774</column>
+            <column name="conservationStatus">VU</column>
+            <column name="avgLifespan(years)">25</column>
+            <column name="avgLength(in)">-1</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">1500</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">2</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Mississippiensis</column>
+            <column name="Genus">Alligator</column>
+            <column name="diet">carnivore</column>
+            <column name="time_active">variable</column>
+            <column name="yearClassified">1802</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">50</column>
+            <column name="avgLength(in)">120</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">1000</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">ovoviviparous</column>
+            <column name="aveLitterSize">50</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Monax</column>
+            <column name="Genus">Marmota</column>
+            <column name="diet">herbivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1758</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">6</column>
+            <column name="avgLength(in)">26</column>
+            <column name="avgHeight(in)">72</column>
+            <column name="avgWeight(lb)">12</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">7</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Musculus</column>
+            <column name="Genus">Balaenoptera</column>
+            <column name="diet">piscivore</column>
+            <column name="time_active">variable</column>
+            <column name="yearClassified">1758</column>
+            <column name="conservationStatus">EN</column>
+            <column name="avgLifespan(years)">80</column>
+            <column name="avgLength(in)">1200</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">300000</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">0</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">1</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Nasomaculatus</column>
+            <column name="Genus">Addax</column>
+            <column name="diet">herbivore</column>
+            <column name="time_active">nocturnal</column>
+            <column name="yearClassified">1816</column>
+            <column name="conservationStatus">CR</column>
+            <column name="avgLifespan(years)">20</column>
+            <column name="avgLength(in)">66</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">275</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">1</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Nasua</column>
+            <column name="Genus">Nasua</column>
+            <column name="diet">omnivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1766</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">8</column>
+            <column name="avgLength(in)">4.5</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">13</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">-1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">7</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Novaeangliae</column>
+            <column name="Genus">Megaptera</column>
+            <column name="diet">piscivore</column>
+            <column name="time_active">variable</column>
+            <column name="yearClassified">1781</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">50</column>
+            <column name="avgLength(in)">600</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">100000</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">0</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">1</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Novemcinctus</column>
+            <column name="Genus">Dasypus</column>
+            <column name="diet">omnivore</column>
+            <column name="time_active">nocturnal</column>
+            <column name="yearClassified">1758</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">14</column>
+            <column name="avgLength(in)">42</column>
+            <column name="avgHeight(in)">8</column>
+            <column name="avgWeight(lb)">10</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">-1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">4</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Ornatus</column>
+            <column name="Genus">Tremarctos</column>
+            <column name="diet">omnivore</column>
+            <column name="time_active">nocturnal,crepuscular</column>
+            <column name="yearClassified">1825</column>
+            <column name="conservationStatus">VU</column>
+            <column name="avgLifespan(years)">25</column>
+            <column name="avgLength(in)">72</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">300</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">2</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Pallidus</column>
+            <column name="Genus">Antrozous</column>
+            <column name="diet">insectivore</column>
+            <column name="time_active">nocturnal</column>
+            <column name="yearClassified">1856</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">15</column>
+            <column name="avgLength(in)">5.5</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">-1</column>
+            <column name="avgWingspan(in)">15</column>
+            <column name="femaleIsSmaller">-1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">2</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Pennsylvanicus</column>
+            <column name="Genus">Camponotus</column>
+            <column name="diet">omnivore</column>
+            <column name="time_active">nocturnal</column>
+            <column name="yearClassified">1773</column>
+            <column name="conservationStatus">NA</column>
+            <column name="avgLifespan(years)">-1</column>
+            <column name="avgLength(in)">0.5</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">-1</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">-1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">ovoviviparous</column>
+            <column name="aveLitterSize">-1</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Quagga</column>
+            <column name="Genus">Equus</column>
+            <column name="diet">herbivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1785</column>
+            <column name="conservationStatus">EX</column>
+            <column name="avgLifespan(years)">30</column>
+            <column name="avgLength(in)">96</column>
+            <column name="avgHeight(in)">48</column>
+            <column name="avgWeight(lb)">400</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">1</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Rufus</column>
+            <column name="Genus">Lynx</column>
+            <column name="diet">carnivore</column>
+            <column name="time_active">variable</column>
+            <column name="yearClassified">1777</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">12</column>
+            <column name="avgLength(in)">32</column>
+            <column name="avgHeight(in)">20</column>
+            <column name="avgWeight(lb)">45</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">6</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Rupicapra</column>
+            <column name="Genus">Rupicapra</column>
+            <column name="diet">herbivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1758</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">20</column>
+            <column name="avgLength(in)">48</column>
+            <column name="avgHeight(in)">31</column>
+            <column name="avgWeight(lb)">140</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">2</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Salmoides</column>
+            <column name="Genus">Micropterus</column>
+            <column name="diet">insectivore,piscivore</column>
+            <column name="time_active">crepuscular</column>
+            <column name="yearClassified">1802</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">16</column>
+            <column name="avgLength(in)">28</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">20</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">0</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">ovoviviparous</column>
+            <column name="aveLitterSize">1000</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Striatus</column>
+            <column name="Genus">Tamias</column>
+            <column name="diet">herbivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1758</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">15</column>
+            <column name="avgLength(in)">0.98</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">0.33</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">-1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">5</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Subflavus</column>
+            <column name="Genus">Pipistrellus</column>
+            <column name="diet">insectivore</column>
+            <column name="time_active">nocturnal</column>
+            <column name="yearClassified">1832</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">8</column>
+            <column name="avgLength(in)">3.5</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">0.04</column>
+            <column name="avgWingspan(in)">8</column>
+            <column name="femaleIsSmaller">0</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">2</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Tarandus</column>
+            <column name="Genus">Rangifer</column>
+            <column name="diet">herbivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1758</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">15</column>
+            <column name="avgLength(in)">84</column>
+            <column name="avgHeight(in)">59</column>
+            <column name="avgWeight(lb)">600</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">2</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Tatarica</column>
+            <column name="Genus">Saiga</column>
+            <column name="diet">herbivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1766</column>
+            <column name="conservationStatus">CR</column>
+            <column name="avgLifespan(years)">8</column>
+            <column name="avgLength(in)">-1</column>
+            <column name="avgHeight(in)">27</column>
+            <column name="avgWeight(lb)">109</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">2</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Taurinus</column>
+            <column name="Genus">Connochaetes</column>
+            <column name="diet">herbivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1823</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">20</column>
+            <column name="avgLength(in)">94</column>
+            <column name="avgHeight(in)">57</column>
+            <column name="avgWeight(lb)">500</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">1</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Taxus</column>
+            <column name="Genus">Taxidea</column>
+            <column name="diet">carnivore</column>
+            <column name="time_active">nocturnal</column>
+            <column name="yearClassified">1778</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">14</column>
+            <column name="avgLength(in)">38</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">25</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">3</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Tinctorius</column>
+            <column name="Genus">Dendrobates</column>
+            <column name="diet">insectivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1799</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">5</column>
+            <column name="avgLength(in)">1.75</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">0.03</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">0</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">ovoviviparous</column>
+            <column name="aveLitterSize">-1</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Tridactyla</column>
+            <column name="Genus">Myrmecophaga</column>
+            <column name="diet">insectivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1758</column>
+            <column name="conservationStatus">VU</column>
+            <column name="avgLifespan(years)">25</column>
+            <column name="avgLength(in)">72</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">100</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">0</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">1</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Troglodytes</column>
+            <column name="Genus">Pan</column>
+            <column name="diet">omnivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1776</column>
+            <column name="conservationStatus">EN</column>
+            <column name="avgLifespan(years)">50</column>
+            <column name="avgLength(in)">-1</column>
+            <column name="avgHeight(in)">60</column>
+            <column name="avgWeight(lb)">130</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">1</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Ursinus</column>
+            <column name="Genus">Vombatus</column>
+            <column name="diet">herbivore</column>
+            <column name="time_active">nocturnal</column>
+            <column name="yearClassified">1800</column>
+            <column name="conservationStatus">VU</column>
+            <column name="avgLifespan(years)">5</column>
+            <column name="avgLength(in)">48</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">75</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">-1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">1</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Variegatus</column>
+            <column name="Genus">Cynocephalus</column>
+            <column name="diet">herbivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1799</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">15</column>
+            <column name="avgLength(in)">15</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">2.9</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">-1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">1</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Virginianus</column>
+            <column name="Genus">Odocoileus</column>
+            <column name="diet">herbivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1780</column>
+            <column name="conservationStatus">LC</column>
+            <column name="avgLifespan(years)">10</column>
+            <column name="avgLength(in)">87</column>
+            <column name="avgHeight(in)">47</column>
+            <column name="avgWeight(lb)">200</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">2</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Vittatus</column>
+            <column name="Genus">Centruroides</column>
+            <column name="diet">insectivore</column>
+            <column name="time_active">variable</column>
+            <column name="yearClassified">18163</column>
+            <column name="conservationStatus">NA</column>
+            <column name="avgLifespan(years)">-1</column>
+            <column name="avgLength(in)">3</column>
+            <column name="avgHeight(in)">-1</column>
+            <column name="avgWeight(lb)">-1</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">-1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">ovoviviparous</column>
+            <column name="aveLitterSize">50</column>
+        </table>
+        <table name="traits_individual">
+            <column name="Species">Zebra</column>
+            <column name="Genus">Equus</column>
+            <column name="diet">herbivore</column>
+            <column name="time_active">diurnal</column>
+            <column name="yearClassified">1758</column>
+            <column name="conservationStatus">VU</column>
+            <column name="avgLifespan(years)">30</column>
+            <column name="avgLength(in)">96</column>
+            <column name="avgHeight(in)">60</column>
+            <column name="avgWeight(lb)">400</column>
+            <column name="avgWingspan(in)">-1</column>
+            <column name="femaleIsSmaller">1</column>
+            <column name="isMonogamous">0</column>
+            <column name="birthType">viviparous</column>
+            <column name="aveLitterSize">1</column>
+        </table>
+    </database>
+</pma_xml_export>
