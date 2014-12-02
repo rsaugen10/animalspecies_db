@@ -8,7 +8,7 @@
 <title>Browse</title>
 <style>
 	body {background-color:#FAF3AA;
-			text-align:center;}
+			}
 	ul {list-style-type:none;}
 </style>
 </head>
@@ -23,56 +23,21 @@
 
 
 <jsp:useBean id="dbConn" scope="request" class="db.DBentry"/>
+<center>
 <h1>Browse</h1>
-<form  action="index.jsp" method="get">
-Bioclass
-</form>
+</center>
+
+
+<a href="order.jsp?name=Kingdom">kingdom</a><span>
+<a href="order.jsp?name=Order">order</a><span>
 
 <br><br><br>
-<%
-	
-	//String bioclass=request.getParameter("species");
-	Connection conn = dbConn.getDBConnection();
-	//Statement stmt = conn.createStatement();
-	String n = "bioclass";
-	String myquery = "SELECT * FROM bioclass WHERE species = ?";
-	PreparedStatement mystatement = conn.prepareStatement(myquery);
-	System.out.println(mystatement);
-	mystatement.setString(1, "afer");
-	System.out.println(mystatement);
-	ResultSet rs = mystatement.executeQuery();
+
+<jsp:include page="order.jsp" >
+  <jsp:param name="name" value="Order"/>
+</jsp:include>
 
 	
-	
-    // resultSet rs = stmt.executeQuery("SELECT * FROM bioclass");
-    // reuse
-		while(rs.next())
-		{  
-		
-	    //String species = rs.getString("Species");
-	    //String genus = rs.getString("Genus");
-	    %>
-	    <center>
-	    <table border='3' cellpadding='5' 
-     cellspacing='2' width="800px">  
-     	<center>
-	    <tr>
-	    <td><%=rs.getString("species")%></td><td><%=rs.getString("genus")%>
-	    </td>
-	    </tr><%; %>
-	</center>
-	</table>
-	</center>
-	    <% 
-	    
-	}
-	conn.close();
-
-	//http://stackoverflow.com/questions/12951486/how-to-call-java-method-in-jsp
-	// http://www.easywayserver.com/blog/java-best-database-connectivity-web/
-	//awesome!
-	//http://wiki4.caucho.com/Java_EE_Servlet_tutorial_:_Using_JSPs_to_create_header,_footer_area,_formatting,_and_basic_CSS_for_bookstore
-%>
 
 
 </body>
