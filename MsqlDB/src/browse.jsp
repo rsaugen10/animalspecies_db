@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>A sample to connect to DB</title>
+<title>Browse</title>
 <style>
 	body {background-color:#FAF3AA;
 			text-align:center;}
@@ -29,29 +30,48 @@ Bioclass
 
 <br><br><br>
 <%
-	String bioclass=request.getParameter("species");
+	
+	//String bioclass=request.getParameter("species");
 	Connection conn = dbConn.getDBConnection();
-	Statement stmt = conn.createStatement();
-    ResultSet rs = stmt.executeQuery("SELECT * FROM bioclass");
+	//Statement stmt = conn.createStatement();
+	String n = "bioclass";
+	String myquery = "SELECT * FROM bioclass WHERE species = ?";
+	PreparedStatement mystatement = conn.prepareStatement(myquery);
+	System.out.println(mystatement);
+	mystatement.setString(1, "afer");
+	System.out.println(mystatement);
+	ResultSet rs = mystatement.executeQuery();
+
+	
+	
+    // resultSet rs = stmt.executeQuery("SELECT * FROM bioclass");
+    // reuse
 		while(rs.next())
 		{  
-			
-	    String species = rs.getString("Species");
-	    String genus = rs.getString("Genus");
+		
+	    //String species = rs.getString("Species");
+	    //String genus = rs.getString("Genus");
 	    %>
 	    <center>
-	    <tr><td><%=rs.getString("species")%></td><td><%=rs.getString("genus")%></td></tr><%; %>
-	    </center>
+	    <table border='3' cellpadding='5' 
+     cellspacing='2' width="800px">  
+     	<center>
+	    <tr>
+	    <td><%=rs.getString("species")%></td><td><%=rs.getString("genus")%>
+	    </td>
+	    </tr><%; %>
+	</center>
+	</table>
+	</center>
 	    <% 
-		}
-		//WARNING!
-		//Need to process ResultSet before closing connection
-
+	    
+	}
 	conn.close();
 
 	//http://stackoverflow.com/questions/12951486/how-to-call-java-method-in-jsp
 	// http://www.easywayserver.com/blog/java-best-database-connectivity-web/
 	//awesome!
+	//http://wiki4.caucho.com/Java_EE_Servlet_tutorial_:_Using_JSPs_to_create_header,_footer_area,_formatting,_and_basic_CSS_for_bookstore
 %>
 
 
